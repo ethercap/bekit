@@ -1,0 +1,29 @@
+{
+  "name": "ether-fe-common",
+  "version": "0.0.0",
+  "description": "common utils for fe",
+  "main": "./dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "init": "npm i --no-save && cd examples && npm i --no-save",
+    "watch": "webpack --config ./build/webpack.config.js --mode=development -w ",
+    "build": "webpack --config ./build/webpack.config.js --mode=production",
+    "example": "cd examples && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.ethercap.com:fe/fe-common.git"
+  },
+  "author": "ether",
+  "license": "ISC",
+  "devDependencies": {
+    "clean-webpack-plugin": "^3.0.0",
+    "ts-loader": "^6.0.4",
+    "tslint": "^5.20.0",
+    "tslint-loader": "^3.5.4",
+    "typescript": "^3.6.2",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.7"
+  },
+  "dependencies": {}
+}
