@@ -1,3 +1,4 @@
+import * as _ from 'lodash';
 /**
  * url链接地址字符串的常规处理
  */
@@ -24,7 +25,7 @@ export default class Url {
     public hash: string;
     constructor(url: string) {
         const patterns: { [key: string]: RegExp } = {
-            protocol: /^(.+)\:\/\//,
+            protocol: /\s(.+)\:\/\//,
             host: /\:\/\/(.+?)[\?\#\s\/]/,
             path: /[\w\s](\/.*?)[\?\#\s]/,
             params: /\?(.+?)[\#\/\s]/,
@@ -38,11 +39,10 @@ export default class Url {
         // // 如果没有给定protocol、host则取当前地址的protocol、host
         this.protocol = this.protocol || location.protocol.slice(0, -1);
         this.host = this.host || location.host;
-        // // 监听fullpath的变化
         this.getFullPath();
     }
     public addParams(obj: Object) {
-        this.params = Object.assign({}, this.params, obj);
+        this.params = _.assign({}, this.params, obj);
         this.getFullPath();
         return this;
     }
@@ -59,12 +59,13 @@ export default class Url {
         return this.addParams(obj);
     }
     public toString() {
-        let protocol = this.protocol + '://',
-            host = this.host,
-            paramsStr = Url.stringifyParams(this.params),
-            hash = this.hash ? '#' + this.hash : '';
+        const protocol = this.protocol + '://';
+        const host = this.host;
+        const path = this.path || '';
+        let paramsStr = Url.stringifyParams(this.params);
+        const hash = this.hash ? '#' + this.hash : '';
         paramsStr = paramsStr ? '?' + paramsStr : '';
-        return protocol + host + this.path + paramsStr + hash;
+        return protocol + host + path + paramsStr + hash;
     }
     public getFullPath() {
         const reg = new RegExp(this.protocol + '://' + this.host);

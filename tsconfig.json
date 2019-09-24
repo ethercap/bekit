@@ -5,7 +5,10 @@
         "strict": false,
         "noImplicitReturns": true,
         "module": "ES6",
-        "target": "ES5"
+        "target": "ES5",
+        "typeRoots": [
+            "node_modules/@types"
+        ],
     },
     "include": [
         "./src/**/*"

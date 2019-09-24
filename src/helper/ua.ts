@@ -1,56 +1,46 @@
 /**
  * 使用说明
- * ua.isDealEase(): Boolean
- * ua.isWx(): Boolean
- * ua.isIOS(): Boolean
- * ua.isAndroid(): Boolean
- * ua.isMob(): Boolean
- * ua.getEnv(): String
+ * Ua.isDealEase(): Boolean
+ * Ua.isWx(): Boolean
+ * Ua.isIOS(): Boolean
+ * Ua.isAndroid(): Boolean
+ * Ua.isMob(): Boolean
+ * Ua.getEnv(): String
  */
 
+import Factory from './Factory.ts';
+const getSingle = Factory.getSingle;
 const userAgent = navigator.userAgent;
-// 单例工厂函数
-function getSingle(fn: Function) {
-    let result: boolean;
-    return function () {
-        if (result === undefined) return (result = fn.apply(this, arguments));
-        return result;
-    };
-}
 
-function _isDealEase() {
+function _isDealEase(): boolean {
     return /DealEase/i.test(userAgent);
 }
 
-function _isWx() {
+function _isWx(): boolean {
     return /MicroMessenger/i.test(userAgent);
 }
 
-function _isIOS() {
+function _isIOS(): boolean {
     return /iPhone|iPad|iPod/i.test(userAgent);
 }
 
-function _isAndroid() {
+function _isAndroid(): boolean {
     return /Android/i.test(userAgent);
 }
 
-function _isMob() {
+function _isMob(): boolean {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);
 }
 
-function _getEnv() {
+function _getEnv(): string {
     return _isWx() ? 'wx' : _isDealEase() ? 'yx' : '';
 }
 
-function test(num: string) {
-    return num;
+export default class Ua {
+    public static isDealEase = getSingle(_isDealEase);
+    public static isWx = getSingle(_isWx);
+    public static isIOS = getSingle(_isIOS);
+    public static isAndroid = getSingle(_isAndroid);
+    public static isMob = getSingle(_isMob);
+    public static getEnv = getSingle(_getEnv);
 }
-
-export default {
-    isDealEase: getSingle(_isDealEase),
-    isWx: getSingle(_isWx),
-    isIOS: getSingle(_isIOS),
-    isAndroid: getSingle(_isAndroid),
-    isMob: getSingle(_isMob),
-    getEnv: getSingle(_getEnv),
-};
