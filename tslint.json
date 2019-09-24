@@ -23,7 +23,9 @@
         "max-classes-per-file": false,
         "ban-types": false,
         "object-literal-sort-keys": false,
-        "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore", "allow-pascal-case"]
+        "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore", "allow-pascal-case"],
+        "interface-name" : [true, "never-prefix"],
+        "no-bitwise": false
     },
     "jsRules": {},
     "linterOptions": {

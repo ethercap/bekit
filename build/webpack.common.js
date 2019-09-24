@@ -1,5 +1,5 @@
 const path = require('path');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 
 module.exports = {
     context: path.resolve('./'),
@@ -22,6 +22,13 @@ module.exports = {
         rules: [{
             test: /\.tsx?$/,
             use: [{
+                // 实现lodash内部模块的按需引入，减小打包体积
+                loader: 'babel-loader',
+                options: {
+                    plugins: ['lodash'],
+                    presets: ['@babel/preset-env']
+                }
+            }, {
                 loader: 'ts-loader'
             }, {
                 loader: 'tslint-loader',
@@ -33,6 +40,7 @@ module.exports = {
         }]
     },
     plugins: [
-        new CleanWebpackPlugin()
+        // 进一步减小lodash的打包体积
+        new LodashModuleReplacementPlugin
     ]
 };
