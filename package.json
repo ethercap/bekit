@@ -1,6 +1,6 @@
 {
   "name": "bekit",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "common kits for fe",
   "main": "./dist/index.js",
   "scripts": {
