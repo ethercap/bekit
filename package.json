@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "init": "npm i --no-save && cd examples && npm i --no-save",
     "watch": "webpack --config ./build/webpack.dev.js -w ",
-    "build": "webpack --config ./build/webpack.pro.js",
+    "build": "webpack --config ./build/webpack.dev.js && webpack --config ./build/webpack.pro.js",
     "example": "cd examples && npm start"
   },
   "repository": {

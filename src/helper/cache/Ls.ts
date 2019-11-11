@@ -8,12 +8,13 @@ import * as _ from 'lodash';
 import Cache from './Cache.ts';
 
 export default class Ls extends Cache {
+    public static defaultConfig: Config = {
+        prefix: '#|',
+        gcRate: .1,
+    };
     public gcDoing: boolean = false;
-    constructor(config: Config = {}) {
-        super(_.assign({
-            prefix: '#|',
-            gcRate: .1,
-        }, config));
+    constructor(config: Config) {
+        super(config);
     }
 
     public remove(keys: string | string[]): Promise<any> {
@@ -26,7 +27,20 @@ export default class Ls extends Cache {
 
     public _setValue(key: string, value: any): Promise<any> {
         if (this._whetherDoGc()) this._gc();
-        localStorage.setItem(key, JSON.stringify(value));
+        try {
+            localStorage.setItem(key, JSON.stringify(value));
+        } catch (e) {
+            if (this._isQuotaExceeded(e)) {
+                const clearLs = confirm('您的本地存储空间已满，会影响您的正常使用，是否清理空间后重试？');
+                if (clearLs) {
+                    this._clear();
+                    return this._setValue(key, value);
+                } else {
+                    return Promise.resolve();
+                }
+            }
+            return Promise.reject(e);
+        }
         return Promise.resolve();
     }
 
@@ -51,5 +65,31 @@ export default class Ls extends Cache {
             if (fullKey && ~fullKey.indexOf(this.config['prefix'])) this.get(this._getOriginKey(fullKey));
         }
         this.gcDoing = false;
+    }
+    // 存储空间超过定额的判断
+    public _isQuotaExceeded(e) {
+        let quotaExceeded = false;
+        if (e) {
+            if (e.code) {
+                switch (e.code) {
+                    case 22:
+                        quotaExceeded = true;
+                        break;
+                    case 1014:
+                    // Firefox早期版本
+                    if (e.name === 'NS_ERROR_DOM_QUOTA_REACHED') {
+                        quotaExceeded = true;
+                    }
+                    break;
+                    default:
+                    break;
+                }
+            }
+        }
+        return quotaExceeded;
+    }
+    // 清空
+    public _clear() {
+        localStorage.clear();
     }
 }

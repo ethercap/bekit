@@ -9,7 +9,7 @@ module.exports = {
     output: {
         path: path.resolve('./dist'),
         filename: '[name].js',
-        library: 'feCommon',
+        library: 'bekit',
         libraryTarget: 'umd',
         globalObject: 'this'
     },
