@@ -11,11 +11,12 @@ interface Config {
 import * as _ from 'lodash';
 
 export default abstract class Cache {
-    public config: Config = {
+    public static defaultConfig: Config = {
         prefix: 'cache|',
     };
-    constructor(config: object) {
-        this.config = _.assign({}, this.config, config);
+    public config: Config;
+    constructor(config: object = {}) {
+        this.config = _.assign({}, new.target.defaultConfig, config);
     }
     // 对外暴露set
     public set(key: string, value: any, expire?: number): Promise<any> {

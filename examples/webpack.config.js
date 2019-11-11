@@ -13,11 +13,28 @@ module.exports = {
         chunkFilename: '[name].js'
     },
     module: {
-        rules: []
+        rules: [{
+            test: /\.less$/,
+            use: [{
+                    loader: 'style-loader',
+                },
+                {
+                    loader: 'css-loader',
+                },
+                {
+                    loader: 'less-loader',
+                },
+            ]
+        }]
     },
     plugins: [
         new HtmlWebpackPlugin({
             template: './index.html'
         }),
-    ]
+    ],
+    resolve: {
+        alias: {
+            'vue$': 'vue/dist/vue.common.js'
+        }
+    }
 };

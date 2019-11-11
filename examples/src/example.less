@@ -1,0 +1,91 @@
+// 需要在项目中手写toast相关样式
+.b-toast {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity .2s ease-in;
+    text-align: center;
+    padding: 10px;
+    border-radius: 4px;
+    &.active {
+        opacity: 1;
+    }
+    .bicon {
+        font-size: 1em;
+        margin-right: .5em;
+    }
+    &-info {
+        background-color: #ddd;
+        .bicon::after {
+            content: '\e622'
+        }
+    }
+    &-success {
+        background-color: #3ad47d;
+        .bicon::after {
+            content: '\e68e'
+        }
+    }
+    &-warning {
+        background-color: #b68a1a;
+        .bicon::after {
+            content: '\e6bf'
+        }
+    }
+    &-error {
+        background-color: #eb5c0e;
+        .bicon::after {
+            content: '\e646'
+        }
+    }
+}
+
+
+// 需要在项目中手写messageBox、alert、confirm、prompt相关样式
+.b-confirm-mask {
+    position: fixed;
+    z-index: 1100;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, .7);
+}
+.b-confirm {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    border-radius: 8px;
+    width: 560px;
+    padding: 40px;
+    text-align: center;
+    line-height: 1;
+    background: #fff;
+    &-title {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    &-message {
+        display: inline-block;
+        text-align: left;
+        color: #ddd;
+        line-height: 1.5;
+        margin: -6px 0;
+    }
+    &-input-container {
+        margin-top: 20px;
+    }
+    &-footer {
+        margin-top: 40px;
+        .b-btn + .b-btn {
+            margin-left: 20px;
+        }
+    }
+}
