@@ -17,7 +17,7 @@ export default class Ls extends Cache {
         super(config);
     }
 
-    public remove(keys: string | string[]): Promise<any> {
+    public remove(keys: string | string[]): any {
         if (typeof keys === 'string') keys = [keys];
         keys.forEach(key => {
             localStorage.removeItem(this._getFullKey(key));
@@ -25,7 +25,7 @@ export default class Ls extends Cache {
         return Promise.resolve();
     }
 
-    public _setValue(key: string, value: any): Promise<any> {
+    public _setValue(key: string, value: any, sync: boolean = false): any {
         if (this._whetherDoGc()) this._gc();
         try {
             localStorage.setItem(key, JSON.stringify(value));
@@ -36,19 +36,20 @@ export default class Ls extends Cache {
                     this._clear();
                     return this._setValue(key, value);
                 } else {
-                    return Promise.resolve();
+                    return sync ? false : Promise.resolve(false);
                 }
             }
-            return Promise.reject(e);
+            return sync ? e : Promise.reject(e);
         }
-        return Promise.resolve();
+        return sync ? true : Promise.resolve(true);
     }
 
-    public _getValue(key: string): Promise<any> {
+    public _getValue(key: string, sync: boolean = false): any {
         if (this._whetherDoGc()) this._gc();
         const dataStr = localStorage.getItem(key);
-        if (!dataStr) return Promise.resolve(null);
-        return Promise.resolve(JSON.parse(dataStr));
+        if (!dataStr) return sync ? null : Promise.resolve(null);
+        const data = JSON.parse(dataStr);
+        return sync ? data : Promise.resolve(data);
     }
 
     // 根据概率大小执行gc方法
