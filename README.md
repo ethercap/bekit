@@ -56,18 +56,26 @@ let ls = new bekit.helper.Ls([config]);
 |gcRate|number|.1|
 
 **methods:**
-- ls.set(key, value[, expire]);
+- ls.set(key, value[, expire]).then(cb);
+- ls.setSync(key, value[, expire]);
 - ls.get(key).then(cb);
-- ls.remove(key|arr).then(cb);
+- ls.getSync(key);
 - ls.getOrSet(key, value).then(cb);
+- ls.getOrSetSync(key, value);
+- ls.remove(key|arr).then(cb);
+
+**set、get、getOrSet方法存在同步和异步两种方法**
 
 ```javascript
 // 示例
 ls.set('test', { msg: 'some msg' });
+ls.setSync('test', { msg: 'some msg' });
 ls.get('test').then(data => { console.log(data) });
+let test = ls.getSync('test');
+ls.getOrSet('test', { msg: 'other msg' }).then(data => { console.log(data) });
+let test = ls.getOrSetSync('test', { msg: 'other msg' });
 ls.remove('test').then(() => {});
 ls.remove(['test']).then(() => {});
-ls.getOrSet('test', { msg: 'other msg' }).then(data => { console.log(data) });
 ```
 
 ## Ua

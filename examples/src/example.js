@@ -12,21 +12,30 @@ new Vue({
         name: 'bekit'
     },
     created: function() {
-        var _this = this;
         window.common = common;
         console.log(common);
-        this.$confirm('some message', 'title', {
-            confirmButtonText: '好的'
-        }).then(function(data) {
-            _this.$toast({
-                message: data.value,
-                type: 'success'
+        this.notice();
+        this.ls();
+    },
+    methods: {
+        ls: function() {
+            window.ls = new common.helper.Ls();
+        },
+        notice: function() {
+            var _this = this;
+            this.$confirm('some message', 'title', {
+                confirmButtonText: '好的'
+            }).then(function(data) {
+                _this.$toast({
+                    message: data.value,
+                    type: 'success'
+                });
+            }).catch(function() {
+                _this.$toast({
+                    message: 'cancel',
+                    type: 'warning',
+                });
             });
-        }).catch(function() {
-            _this.$toast({
-                message: 'cancel',
-                type: 'warning',
-            });
-        });
+        }
     }
 });
