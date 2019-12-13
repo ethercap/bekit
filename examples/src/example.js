@@ -1,6 +1,9 @@
 import Vue from 'vue';
 // 引入工具包
 import * as common from '../../dist/index.js';
+window.common = common;
+console.log(common);
+const { Factory, Time, Ua, Url } = common.helper;
 // 应用插件
 Vue.use(common.plugin.vueNotice);
 // 引入业务样式 这些是需要在项目中手写的
@@ -12,10 +15,8 @@ new Vue({
         name: 'bekit'
     },
     created: function() {
-        window.common = common;
-        console.log(common);
-        this.notice();
         this.ls();
+        // this.notice();
     },
     methods: {
         ls: function() {

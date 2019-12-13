@@ -1,6 +1,6 @@
 import * as _ from 'lodash';
-import util from './_util.ts';
-const { createElement } = util;
+import Dom from '../helper/Dom.ts';
+const { createElement } = Dom;
 
 // 定义配置格式
 interface Options {
