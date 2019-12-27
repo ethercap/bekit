@@ -26,7 +26,7 @@ export default class Url {
     constructor(url: string) {
         const patterns: { [key: string]: RegExp } = {
             protocol: /\s(.+)\:\/\//,
-            host: /\:\/\/(.+?)[\?\#\s\/]/,
+            host: /(?:\s|\:\/\/)([^\:\/\r\n]+?)[\?\#\s\/]/,
             path: /[\w\s](\/.*?)[\?\#\s]/,
             params: /\?(.+?)[\#\/\s]/,
             hash: /\#(\w+)\s$/,
@@ -52,6 +52,7 @@ export default class Url {
         keys.forEach(key => {
             delete this.params[key];
         });
+        if (!Object.keys(this.params).length) this.params = null;
         this.getFullPath();
         return this;
     }

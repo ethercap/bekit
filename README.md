@@ -121,6 +121,9 @@ bekit.helper.Time.format(date, 'yyyy-MM-dd 星期DC');
 ## Factory
 **methods:**
 - bekit.helper.Factory.getSingle(fn);
+- bekit.helper.Factory.getCache(fn);
+- bekit.helper.Factory.before(fn, beforeFn);
+- bekit.helper.Factory.after(fn, afterFn);
 
 ```javascript
 // 示例
@@ -128,6 +131,41 @@ let fn1 = bekit.helper.Factory.getSingle(function() {
     let date = new Date();
     return date;
 });
+
+function originFn() {
+    console.log(2);
+}
+let fn2 = bekit.helper.Factory.before(originFn, function() {
+    console.log(1);
+})
+fn2(); // 1 2
+```
+
+## Dom
+**methods:**
+- bekit.helper.Dom.createElement(tag[, options]);
+- bekit.helper.Dom.getDoc();
+- bekit.helper.Dom.getViewPort();
+- bekit.helper.Dom.getDocumentPort();
+- bekit.helper.Dom.getScroll();
+- bekit.helper.Dom.isTopped(dom);
+- bekit.helper.Dom.isClient(dom);
+
+```javascript
+// 创建dom
+let div = bekit.helper.Dom.createElement('div', { class: 'test' });
+// 获取根元素
+bekit.helper.Dom.getDoc();   // html
+// 获取视口尺寸
+bekit.helper.Dom.getViewPort();  // { width: xx, height: xx }
+// 获取文档尺寸
+bekit.helper.Dom.getDocumentPort(); // { width: xx, height: xx }
+// 获取滚动条位置
+bekit.helper.Dom.getScroll(); // { top: xx, left: xx }
+// 某个元素是否满足吸顶条件
+bekit.helper.Dom.isTopped(dom); // boolean
+// 某个元素是否出现在屏幕中
+bekit.helper.Dom.isClient(dom); // boolean
 ```
 
 ## notice
