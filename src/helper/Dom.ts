@@ -1,3 +1,8 @@
+interface ScrollValue {
+    top: number,
+    left: number
+}
+
 // 一些dom操作
 export default class Dom {
     public static createElement(tag: string, attrs?: Object): HTMLElement {
@@ -6,6 +11,10 @@ export default class Dom {
             elem.setAttribute(key, attrs[key]);
         }
         return elem;
+    }
+    public static getElement(selector: string | HTMLElement): HTMLElement {
+        const dom = selector;
+        return typeof dom === 'string' ? document.querySelector(dom) : dom;
     }
     // 获取根元素
     public static getDoc(): any {
@@ -35,23 +44,34 @@ export default class Dom {
         };
     }
     // 获取滚动条位置
-    public static getScroll(): Object {
-        const doc = this.getDoc();
+    // NOTE: getDoc().scrollTop在移动端失效
+    public static getScroll(): ScrollValue {
+        const top = document.documentElement.scrollTop;
+        const left = document.documentElement.scrollLeft;
         return {
-            top: doc.scrollTop,
-            left: doc.scrollLeft,
+            top: top === 0 ? document.body.scrollTop : top,
+            left: left === 0 ? document.body.scrollLeft : left,
         };
     }
     // 是否达到吸顶条件
-    public static isTopped(dom: HTMLElement): boolean {
+    public static isTopped(selector: string | HTMLElement): boolean {
+        const dom = this.getElement(selector);
         const position = dom.getBoundingClientRect();
         if (position.top < 0) return true;
         return false;
     }
     // 是否出现在屏幕中
-    public static isClient(dom: HTMLElement): boolean {
+    public static isClient(selector: string | HTMLElement): boolean {
+        const dom = this.getElement(selector);
         const position = dom.getBoundingClientRect();
         if (position.top < this.getViewPort().height && position.bottom > 0) return true;
         return false;
+    }
+    // 滚动到某一个元素的位置
+    public static scrollTo(selector: string | HTMLElement, offset: number = -30) {
+        const dom = this.getElement(selector);
+        const position = dom.getBoundingClientRect();
+        const scrollTop = this.getScroll().top;
+        window.scrollTo(0, position.top + scrollTop + offset);
     }
 }
