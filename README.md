@@ -148,8 +148,9 @@ fn2(); // 1 2
 - bekit.helper.Dom.getViewPort();
 - bekit.helper.Dom.getDocumentPort();
 - bekit.helper.Dom.getScroll();
-- bekit.helper.Dom.isTopped(dom);
-- bekit.helper.Dom.isClient(dom);
+- bekit.helper.Dom.isTopped(selector | HTMLElement);
+- bekit.helper.Dom.isClient(selector | HTMLElement);
+- bekit.helper.Dom.scrollTo(selector | HTMLElement[, offset]);
 
 ```javascript
 // 创建dom
@@ -166,6 +167,8 @@ bekit.helper.Dom.getScroll(); // { top: xx, left: xx }
 bekit.helper.Dom.isTopped(dom); // boolean
 // 某个元素是否出现在屏幕中
 bekit.helper.Dom.isClient(dom); // boolean
+// 将滚动条滚动到某个元素的位置
+bekit.helper.Dom.scrollTo(dom, -30); // offset默认为 -30 
 ```
 
 ## notice
