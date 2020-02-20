@@ -17,11 +17,15 @@ export default class Ls extends Cache {
         super(config);
     }
 
-    public remove(keys: string | string[]): any {
+    public removeSync(keys: string | string[]): boolean {
         if (typeof keys === 'string') keys = [keys];
         keys.forEach(key => {
             localStorage.removeItem(this._getFullKey(key));
         });
+        return true;
+    }
+    public remove(keys: string | string[]): any {
+        this.removeSync(keys);
         return Promise.resolve();
     }
 

@@ -78,8 +78,10 @@ export default abstract class Cache {
     /*
     * 对外暴露remove
     * remove 异步
+    * removeSync 同步
     */
     public abstract remove(keys: string | string[]): Promise<any>;
+    public abstract removeSync(keys: string | string[]): boolean;
 
     // 以下为私有方法
     public _set(key: string, value: any, expire?: number, sync: boolean = false): any {

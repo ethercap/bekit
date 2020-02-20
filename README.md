@@ -63,6 +63,7 @@ let ls = new bekit.helper.Ls([config]);
 - ls.getOrSet(key, value).then(cb);
 - ls.getOrSetSync(key, value);
 - ls.remove(key|arr).then(cb);
+- ls.removeSync(key|arr);
 
 **set、get、getOrSet方法存在同步和异步两种方法**
 
@@ -151,6 +152,9 @@ fn2(); // 1 2
 - bekit.helper.Dom.isTopped(selector | HTMLElement);
 - bekit.helper.Dom.isClient(selector | HTMLElement);
 - bekit.helper.Dom.scrollTo(selector | HTMLElement[, offset]);
+- bekit.helper.Dom.css(selector | HTMLElement);
+- bekit.helper.Dom.on(selector | HTMLElement, type, handler[, options]);
+- bekit.helper.Dom.off(selector | HTMLElement, type, handler);
 
 ```javascript
 // 创建dom
@@ -168,7 +172,13 @@ bekit.helper.Dom.isTopped(dom); // boolean
 // 某个元素是否出现在屏幕中
 bekit.helper.Dom.isClient(dom); // boolean
 // 将滚动条滚动到某个元素的位置
-bekit.helper.Dom.scrollTo(dom, -30); // offset默认为 -30 
+bekit.helper.Dom.scrollTo(dom, -30); // offset默认为 -30
+// 获取计算css样式
+bekit.helper.Dom.css(dom);
+// 绑定事件
+bekit.helper.Dom.on(dom, 'click', function(){});
+// 解绑事件
+bekit.helper.Dom.off(dom, 'click', function(){});
 ```
 
 ## notice

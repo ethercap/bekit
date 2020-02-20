@@ -3,7 +3,7 @@ import Vue from 'vue';
 import * as common from '../../dist/index.js';
 window.common = common;
 console.log(common);
-const { Factory, Time, Ua, Url } = common.helper;
+const { Factory, Time, Ua, Url, Dom } = common.helper;
 // 应用插件
 Vue.use(common.plugin.vueNotice);
 // 引入业务样式 这些是需要在项目中手写的
@@ -15,10 +15,15 @@ new Vue({
         name: 'bekit'
     },
     created: function() {
+        window.x = this;
+        this.$nextTick(this.test);
         this.ls();
         // this.notice();
     },
     methods: {
+        test: function() {
+
+        },
         ls: function() {
             window.ls = new common.helper.Ls();
         },
