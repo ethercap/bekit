@@ -74,4 +74,20 @@ export default class Dom {
         const scrollTop = this.getScroll().top;
         window.scrollTo(0, position.top + scrollTop + offset);
     }
+    // 获取计算css样式
+    public static css(selector: string | HTMLElement) {
+        const dom = this.getElement(selector);
+        return window.getComputedStyle(dom);
+    }
+    // 事件
+    public static on(selector: string | HTMLElement, type: string, handler: any, options: any = false): Function {
+        const dom = this.getElement(selector);
+        dom.addEventListener(type, handler, options);
+        return handler;
+    }
+    public static off(selector: string | HTMLElement, type: string, handler: any): Function {
+        const dom = this.getElement(selector);
+        dom.removeEventListener(type, handler, false);
+        return handler;
+    }
 }
