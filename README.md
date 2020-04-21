@@ -1,5 +1,5 @@
-# fe-common
-common kits for fe
+# bekit
+common kits for fe.
 # 安装
 
 ```javascript
@@ -65,7 +65,7 @@ let ls = new bekit.helper.Ls([config]);
 - ls.remove(key|arr).then(cb);
 - ls.removeSync(key|arr);
 
-**set、get、getOrSet方法存在同步和异步两种方法**
+**Sync方法为同步版本**
 
 ```javascript
 // 示例
@@ -77,6 +77,7 @@ ls.getOrSet('test', { msg: 'other msg' }).then(data => { console.log(data) });
 let test = ls.getOrSetSync('test', { msg: 'other msg' });
 ls.remove('test').then(() => {});
 ls.remove(['test']).then(() => {});
+ls.removeSync(['test']);
 ```
 
 ## Ua
@@ -254,8 +255,6 @@ this.$messageBox({
 
 # 开发维护(针对开发人员)
 ```javascript
-git clone git@git.ethercap.com:fe/bekit.git
-cd fe-common
 npm run init
 npm run watch
 npm run example

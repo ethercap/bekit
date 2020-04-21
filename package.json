@@ -12,9 +12,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@git.ethercap.com:fe/fe-common.git"
+    "url": "git+https://github.com/ethercap/bekit.git"
   },
   "author": "ether",
+  "homepage": "https://github.com/ethercap/bekit",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.6.0",
