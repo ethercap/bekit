@@ -1,31 +1,31 @@
 # plugin
-Some Vue plugins, such as notice plugin.
+将一些模块封装为 vue 插件，如 notice 模块，方便项目中调用。
 
 ## notice
-#### Usage
+#### 使用
 ```javascript
 import Vue from 'vue';
 import * as bekit from 'bekit';
 Vue.use(bekit.plugin.vueNotice);
 ```
 
-#### Methods
+#### 方法
 ##### this.$toast
-- Detail: See [bekit.notice.toast](/guide/notice/#toast)
+- 详细：见 [bekit.notice.toast](/zh/guide/notice/#toast)
 
 ##### this.$messageBox
-- Detail: See [bekit.notice.messageBox](/guide/notice/#messageBox)
+- 详细：见 [bekit.notice.messageBox](/zh/guide/notice/#messageBox)
 
 ##### this.$alert
-- Detail: See [bekit.notice.alert](/guide/notice/#alert)
+- 详细：见 [bekit.notice.alert](/zh/guide/notice/#alert)
 
 ##### this.$confirm
-- Detail: See [bekit.notice.confirm](/guide/notice/#confirm)
+- 详细：见 [bekit.notice.confirm](/zh/guide/notice/#confirm)
 
 ##### this.$prompt
-- Detail: See [bekit.notice.prompt](/guide/notice/#prompt)
+- 详细：见 [bekit.notice.prompt](/zh/guide/notice/#prompt)
 
-#### Usage
+#### 示例
 ```javascript
 this.$toast('message');
 this.$alert('message', 'title').then(function() {

@@ -1,18 +1,18 @@
 # Factory
-Some common factory functions, such as singleton pattern, cache pattern and AOP and so on.
+提供常见的工厂函数，包括单例、缓存、AOP，方法为 Factory 类的静态方法。
 
-## Get Class
+## 获取类
 ```javascript
 const { Factory } = bekit.helper;
 ```
 
-## Static Methods
+## 静态方法
 ### Factory.getSingle(fn);
-- Arguments:
+- 参数：
   - {Function} fn
-- Returns: {Function}
-- Detail: Convert an ordinary function to an singleton pattern function
-- Usage
+- 返回值：{Function}
+- 详细：将一个普通函数转换成一个单例模式的函数。
+- 示例
 ```javascript
 function getDate() {
     return new Date();
@@ -21,11 +21,11 @@ const singleFn = Factory.getSingle(getDate);
 ```
 
 ### Factory.getCache(fn);
-- Arguments:
+- 参数：
   - {Function} fn
-- Returns: {Function}
-- Detail: Convert an ordinary function to an cache pattern function. Please note that object is an valid argument of the function
-- Usage
+- 返回值：{Function}
+- 详细：将一个普通函数转换成具有缓存代理的函数，适用于某个被频繁调用的函数，值得注意的是，该函数的参数只能简单类型的数字、字符串。
+- 示例
 ```javascript
 function originFn(key) {
     // some complex process
@@ -36,12 +36,12 @@ newFn('key');
 ```
 
 ### Factory.before(fn, beforeFn);
-- Arguments:
+- 参数：
   - {Function} fn
   - {Function} beforeFn
-- Returns: {Function}
-- Detail: Convert an ordinary function to an AOP function. The beforeFn will run firstly and then the fn will run.
-- Usage
+- 返回值：{Function}
+- 详细：实现 AOP，返回一个函数，先执行 beforeFn，再执行 fn。
+- 示例
 ```javascript
 function originFn() {
     console.log(2);
@@ -53,12 +53,12 @@ newFn(); // 1 2
 ```
 
 ### Factory.after(fn, afterFn);
-- Arguments:
+- 参数：
   - {Function} fn
   - {Function} afterFn
-- Returns: {Function}
-- Detail: Convert an ordinary function to an AOP function. The fn will run firstly and then the afterFn will run.
-- Usage
+- 返回值：{Function}
+- 详细：实现 AOP，返回一个函数，先执行 fn，再执行 afterFn。
+- 示例
 ```javascript
 function originFn() {
     console.log(1);

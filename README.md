@@ -1,16 +1,17 @@
-# bekit
-Bekit 致力于解决在前端开发中常见的业务场景，如 url 操作、客户端环境判断、快速本地存储等，提升开发效率。
+# Introduction
+Bekit is a Front-End kit package. Its purpose is to solve the common problems in our development and to make work efficient. It contain functions such as operating url, userAgent judgement, localStorage and so on.
 
-## 安装
+# Install
 ```bash
 npm install bekit -D
 ```
 
-## 使用
+# Usage
 ```javascript
-import * as bekit form 'bekit';
+import * as bekit from 'bekit';
 const { Url, Ua, Dom } = bekit.helper;
 ```
 
-## 文档
-[文档](http://zhiyuancap.com/bekit/)
+## Documentation
+[English](http://zhiyuancap.com/bekit/)
+[中文](http://zhiyuancap.com/bekit/zh/)

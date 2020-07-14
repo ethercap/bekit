@@ -1,27 +1,27 @@
 # Ua
-判断客户端环境，方法为 Ua类的静态方法。
+Judge the client-side userAgent. These are class static methods.
 
-## 获取类
+## Get Class
 ```javascript
 const { Ua } = bekit.helper;
 ```
 
-## 静态方法
+## Static Methods
 ### Ua.isWx()
-- 返回值：{boolean}
-- 详细：是否为微信客户端
+- Returns: {boolean}
+- Detail: If it's Wechat
 
 ### Ua.isIOS()
-- 返回值：{boolean}
-- 详细：是否为 IOS 设备
+- Returns: {boolean}
+- Detail: If it's an IOS device
 
 ### Ua.isAndroid()
-- 返回值：{boolean}
-- 详细：是否为 Android 设备
+- Returns: {boolean}
+- Detail: If is an Android device
 
 ### Ua.isMob()
-- 返回值：{boolean}
-- 详细：是否为移动端
+- Returns: {boolean}
+- Detail: If is an mobile device
 
 <!-- #### Ua.isDealEase()
 #### Ua.getEnv() -->

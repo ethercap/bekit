@@ -1,19 +1,19 @@
 # notice
-提供业务中常见的通知，包含 toast、messageBox、alert、confirm、prompt，因为 bekit 是无 UI 的，所以在某个项目中引入 bekit 后需要写相应的样式，参见 [示例](https://github.com/ethercap/bekit/blob/master/examples/src/example.less)。这种设计是为了解决 Element UI 等组件库中的样式无法满足业务需求这种场景。
+Support the notice function, such as toast, alert, confirm, prompt. You can customize the style of the notice components. If you want to use these components in your project, you should write styles firstly. [See detail](https://github.com/ethercap/bekit/blob/master/examples/src/example.less)
 
 ## toast
 #### bekit.notice.toast(options)
-- 参数：
+- Arguments:
   - {String | Object} options
 ##### options
-|属性|类型|说明|默认值|是否必填|
+|Property|Type|Detail|Default|Required|
 |:---:|:---:|:---:|:---:|:---:|
-|message|String|内容|''|是|
-|type|String|支持 info、warning、success、error|info|否|
-|iconClass|String|内容前面的 icon 的类名|bicon|否|
-|duration|Number|内容展示时间|2500|否|
-|timeWait|Number|内容在展示结束后，清空 DOM 的延迟时间|200|否|
-##### 示例
+|message|String|The content|''|yes|
+|type|String|Valid value: info、warning、success、error|info|no|
+|iconClass|String|the class of icon befor the message|bicon|no|
+|duration|Number|Duration time|2500|no|
+|timeWait|Number|After notice, the delay time of clearing the component|200|no|
+##### Usage
 ```javascript
 bekit.notice.toast('some message');
 bekit.notice.toast({
@@ -24,45 +24,45 @@ bekit.notice.toast({
 
 ## messageBox
 #### bekit.notice.messageBox(options)
-- 参数：
+- Arguments:
   - {Object} options
-- 返回值：{Promise}
+- Returns: {Promise}
 ##### options
-|属性|类型|说明|默认值|是否必填|
+|Property|Type|Detail|Default|Required|
 |:---:|:---:|:---:|:---:|:---:|
-|title|String|标题|''|否|
-|message|String|内容|''|否|
-|showCancelButton|boolean|是否展示取消按钮|true|否|
-|cancelButtonText|String|取消按钮的内容|'取消'|否
-|confirmButtonText|String|确定按钮的内容|'确定'|否
-|cancelButtonClass|String|取消按钮的类名|'b-btn b-btn-cancel'|否
-|confirmButtonClass|String|取消按钮的类名|'b-btn b-btn-confirm'|否
-|showInput|boolean|是否展示输入框|false|否
-|inputPattern|RegExp|输入框的校验正则|null|否
-|inputErrorMessage|String|输入框的错误提示|''|否
-##### 示例
+|title|String|Notice title|''|no|
+|message|String|Notice content|''|no|
+|showCancelButton|boolean|If show the cancel button|true|no|
+|cancelButtonText|String|The text of the cancel button|'取消'|no
+|confirmButtonText|String|The text of the confirm button|'确定'|no
+|cancelButtonClass|String|The class of the cancel button|'b-btn b-btn-cancel'|no
+|confirmButtonClass|String|The class of the confirm button|'b-btn b-btn-confirm'|no
+|showInput|boolean|If show the input|false|no
+|inputPattern|RegExp|The pattern of input|null|no
+|inputErrorMessage|String|The error message of input|''|no
+##### Usage
 ```javascript
 bekit.notice.messageBox({
     title: 'title',
     message: 'message',
-    confirmButtonText: '我知道了'
+    confirmButtonText: 'I know'
 });
 ```
 
 ## alert
 #### bekit.notice.alert(message[, title, options])
-- 参数：
+- Arguments:
   - {String} message
   - {String} [title]
   - {Object} [options]
-- 返回值：{Promise}
-- 详细：模拟原生的 alert
+- Returns: {Promise}
+- Detail: Simulate the native function of alert
 ##### options
-|属性|类型|说明|默认值|是否必填|
+|Property|Type|Detail|Default|Required|
 |:---:|:---:|:---:|:---:|:---:|
-|confirmButtonText|String|确定按钮的内容|'确定'|否
-|confirmButtonClass|String|取消按钮的类名|'b-btn b-btn-confirm'|否
-##### 示例
+|confirmButtonText|String|The text of confirm button|'确定'|no
+|confirmButtonClass|String|The class of confirm button|'b-btn b-btn-confirm'|no
+##### Usage
 ```javascript
 bekit.notice.alert('message').then(() => {
     // do something
@@ -71,20 +71,20 @@ bekit.notice.alert('message').then(() => {
 
 ## confirm
 #### bekit.notice.confirm(message[, title, options])
-- 参数：
+- Arguments:
   - {String} message
   - {String} [title]
   - {Object} [options]
-- 返回值：{Promise}
-- 详细：模拟原生的 confirm
+- Returns: {Promise}
+- Detail: Simulate the native function of confirm
 ##### options
-|属性|类型|说明|默认值|是否必填|
+|Property|Type|Detail|Default|Required|
 |:---:|:---:|:---:|:---:|:---:|
-|cancelButtonText|String|取消按钮的内容|'取消'|否
-|confirmButtonText|String|确定按钮的内容|'确定'|否
-|cancelButtonClass|String|取消按钮的类名|'b-btn b-btn-cancel'|否
-|confirmButtonClass|String|取消按钮的类名|'b-btn b-btn-confirm'|否
-##### 示例
+|cancelButtonText|String|The text of cancel button|'取消'|no
+|confirmButtonText|String|The text of confirm button|'确定'|no
+|cancelButtonClass|String|The class of cancel button|'b-btn b-btn-cancel'|no
+|confirmButtonClass|String|The class of confirm button|'b-btn b-btn-confirm'|no
+##### Usage
 ```javascript
 bekit.notice.confirm('message', 'title').then(() => {
     // cofirm here
@@ -95,26 +95,26 @@ bekit.notice.confirm('message', 'title').then(() => {
 
 ## prompt
 #### bekit.notice.prompt(message[, title, options])
-- 参数：
+- Arguments:
   - {String} message
   - {String} [title]
   - {Object} [options]
-- 返回值：{Promise}
-- 详细：模拟原生的 prompt
+- Returns: {Promise}
+- Detail: Simulate the native function of prompt
 ##### options
-|属性|类型|说明|默认值|是否必填|
+|Property|Type|Detail|Default|Required|
 |:---:|:---:|:---:|:---:|:---:|
-|cancelButtonText|String|取消按钮的内容|'取消'|否
-|confirmButtonText|String|确定按钮的内容|'确定'|否
-|cancelButtonClass|String|取消按钮的类名|'b-btn b-btn-cancel'|否
-|confirmButtonClass|String|取消按钮的类名|'b-btn b-btn-confirm'|否
-|inputPattern|RegExp|输入框的校验正则|null|否
-|inputErrorMessage|String|输入框的错误提示|''|否
-##### 示例
+|cancelButtonText|String|The text of cancel button|'取消'|no
+|confirmButtonText|String|The text of confirm button|'确定'|no
+|cancelButtonClass|String|The class of cancel button|'b-btn b-btn-cancel'|no
+|confirmButtonClass|String|The class of confirm button|'b-btn b-btn-confirm'|no
+|inputPattern|RegExp|The pattern of input|null|no
+|inputErrorMessage|String|The error message of input|''|no
+##### Usage
 ```javascript
 bekit.notice.confirm('message', 'title', {
     inputPattern: /abc/,
-    inputErrorMessage: '格式错误'
+    inputErrorMessage: 'Invalid value'
 }).then(() => {
     // cofirm here
 }).catch(() => {

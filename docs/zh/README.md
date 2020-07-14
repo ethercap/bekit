@@ -2,9 +2,9 @@
 home: true
 heroImage: /logo.png
 heroText: Bekit
-tagline: Smart Front-End Kit
-actionText: Get started →
-actionLink: /guide/
+tagline: 小巧的前端业务工具集
+actionText: 快速上手 →
+actionLink: /zh/guide/
 footer: null
 ---
 

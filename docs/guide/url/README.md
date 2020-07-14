@@ -1,42 +1,42 @@
 # Url
-对url的常见操作，在字符串和对象之间相互转换，支持对参数的增删和修改。
+It contains some common operations of url. You can convert url between String and Object. You can also add, remove and replace params of url.
 
-## 获取实例
+## Get Instance
 ```javascript
 const { Url } = bekit.helper;
 let url = new Url('https://www.google.com/index?id=abc#hash');
 ```
 
-## 实例属性
+## Instance Properties
 ### url.protocol
-- 类型：String
-- 详细：字符串，返回服务协议，如果原始字符串中没有 protocol，则返回 window.location.protocol。如原始字符串为'www.google.com'。
+- Type: String
+- Detail: Return the protocol. If the original string doesn't contain the protocol, for example 'www.google.com', then return window.location.protocol.
 
 ### url.host
-- 类型：String
-- 详细：字符串，返回主机名
+- Type: String
+- Detail: Return the host
 
 ### url.path
-- 类型：String
-- 详细：字符串，对应当前路由的路径，总是解析为绝对路径，如 "/foo/bar"，如果没有路径，则为null。
+- Type: String
+- Detail: Return the pathname. It will alwayse be the absolute path, such as '/foo/bar'. If original string doesn't contain the path, then return null.
 
 ### url.fullPath
-- 类型：String
-- 详细：字符串，返回包含查询参数和hash的完整路径，如果为空，则为空字符串。
+- Type: String
+- Detail: Return the full path which contains search and hash.
 
 ### url.params
-- 类型：Object
-- 详细：一个 key/value 对象，表示 url 查询参数。例如，对于路径 /foo?user=1，则有 url.params.user == 1，如果没有查询参数，则为null。
+- Type: Object
+- Detail: Return an key/value object which represents the search of url. For example, the original string like '/foo?user=tom', url.params.user === 'tom'. If the original string doesn't have search, then return null.
 
 ### url.hash
-- 类型：String
-- 详细：当前路由的 hash 值 (不带 #) ，如果没有 hash 值，则为null。
+- Type: String
+- Detail: Return the hash of url(doesn't contain #). If the original string doesn't have hash, then return null.
 
-## 实例方法
+## Instance Methods
 ### url.addParams(options)
-- 参数：
-  - {Object} options 一个 key/value 对象
-#### 示例
+- Arguments:
+  - {Object} options an key/value Object
+- Usage
 ```javascript
 url.addParams({
     page: 1
@@ -44,18 +44,18 @@ url.addParams({
 ```
 
 ### url.removeParams(key)
-- 参数：
+- Arguments:
   - {String | Array} key
-#### 示例
+- Usage
 ```javascript
 url.removeParams('page');
 url.removeParams(['page', 'id']);
 ```
 
 ### url.replaceParams(options)
-- 参数：
-  - {Object} options 一个 key/value 对象
-#### 示例
+- Arguments:
+  - {Object} options an key/value Object
+- Usage
 ```javascript
 url.replaceParams({
     page: 2
@@ -63,9 +63,9 @@ url.replaceParams({
 ```
 
 ### url.toString()
-- 返回值： {String}
-- 详细： 将实例转为字符串格式
+- Returns: {String}
+- Detail:  Convert the instance to String.
 
 ### url.getFullPath()
-- 返回值： {String}
-- 详细： 返回实例的 fullPath
+- Returns: {String}
+- Detail:  Return the fullPath.

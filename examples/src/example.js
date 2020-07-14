@@ -1,11 +1,11 @@
 import Vue from 'vue';
 // 引入工具包
-import * as common from '../../dist/index.js';
-window.common = common;
-console.log(common);
-const { Factory, Time, Ua, Url, Dom } = common.helper;
+import * as bekit from '../../dist/index.js';
+window.bekit = bekit;
+console.log(bekit);
+const { Factory, Time, Ua, Url, Dom } = bekit.helper;
 // 应用插件
-Vue.use(common.plugin.vueNotice);
+Vue.use(bekit.plugin.vueNotice);
 // 引入业务样式 这些是需要在项目中手写的
 import './example.less';
 
@@ -25,7 +25,7 @@ new Vue({
 
         },
         ls: function() {
-            window.ls = new common.helper.Ls();
+            window.ls = new bekit.helper.Ls();
         },
         notice: function() {
             var _this = this;

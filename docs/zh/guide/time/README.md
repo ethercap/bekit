@@ -1,17 +1,17 @@
 # Time
-Format the date.
+对日期的格式化操作，方法为 Time 类的静态方法。
 
-## Get Class
+## 获取类
 ```javascript
 const { Time } = bekit.helper;
 ```
 
-## Static Methods
+## 静态方法
 ### Time.format(date, pattern)
-- Arguments:
+- 参数：
   - {Date} date
   - {String} pattern
-#### Valid value of pattern
+#### pattern 的有效值
 |pattern|decription|
 |:---:|:---:|
 |yyyy|year|
@@ -30,8 +30,8 @@ const { Time } = bekit.helper;
 |ss|second|
 |s|second|
 
-#### Usage
+#### 示例
 ```javascript
 const date = new Date();
-Time.format(date, 'yyyy-MM-dd DD');  // 2020-01-03 Friday
+Time.format(date, 'yyyy-MM-dd 星期DC');  // 2020-01-03 星期五
 ```
