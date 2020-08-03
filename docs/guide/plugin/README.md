@@ -2,11 +2,28 @@
 Some Vue plugins, such as notice plugin.
 
 ## notice
+#### Init
+Vue.use(bekit.plugin.vueNotice[, options]);
+- Arguments:
+  - {Object} options
+##### options
+|Property|Detail|Default|Required|
+|:-:|:-:|:-:|:-:|
+|toast|a default option for toast|{}|no|
+|alert|a default option for alert|{}|no|
+|confirm|a default option for confirm|{}|no|
+|prompt|a default option for prompt|{}|no|
+|messageBox|a default option for messageBox|{}|no|
+
 #### Usage
 ```javascript
 import Vue from 'vue';
 import * as bekit from 'bekit';
-Vue.use(bekit.plugin.vueNotice);
+Vue.use(bekit.plugin.vueNotice, {
+    toast: {
+        iconClass: 'xxicon'
+    }
+});
 ```
 
 #### Methods

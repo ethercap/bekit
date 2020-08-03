@@ -15,7 +15,7 @@ function toast(options: [Options, string]) {
     const _options: Options = {
         message: '',
         type: 'info',
-        iconClass: '',
+        iconClass: 'bicon',
         duration: 2500,
         timeWait: 200,
     };
@@ -27,9 +27,8 @@ function toast(options: [Options, string]) {
         _.assign(_options, options);
     }
     const toastDom = createElement('div', { class: 'b-toast' });
-    const icon = createElement('i', { class: 'bicon' });
+    const icon = createElement('i', { class: _options.iconClass });
     const message = createElement('div');
-    if (_options.iconClass) icon.className = _options.iconClass;
     toastDom.classList.add('b-toast-' + _options.type);
     message.innerHTML = _options.message;
     toastDom.appendChild(icon);

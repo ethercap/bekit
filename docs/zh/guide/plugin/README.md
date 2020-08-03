@@ -2,11 +2,28 @@
 将一些模块封装为 vue 插件，如 notice 模块，方便项目中调用。
 
 ## notice
-#### 使用
+#### 初始化
+Vue.use(bekit.plugin.vueNotice[, options]);
+- 参数：
+  - {Object} options
+##### options
+|属性|描述|默认值|是否必填|
+|:-:|:-:|:-:|:-:|
+|toast|提供给 toast 方法的默认 option|{}|否|
+|alert|提供给 alert 方法的默认 option|{}|否|
+|confirm|提供给 confirm 方法的默认 option|{}|否|
+|prompt|提供给 prompt 方法的默认 option|{}|否|
+|messageBox|提供给 messageBox 方法的默认 option|{}|否|
+
+#### 示例
 ```javascript
 import Vue from 'vue';
 import * as bekit from 'bekit';
-Vue.use(bekit.plugin.vueNotice);
+Vue.use(bekit.plugin.vueNotice, {
+    toast: {
+        iconClass: 'xxicon'
+    }
+});
 ```
 
 #### 方法
