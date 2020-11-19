@@ -112,7 +112,7 @@ bekit.notice.confirm('message', 'title').then(() => {
 |inputErrorMessage|String|The error message of input|''|no
 ##### Usage
 ```javascript
-bekit.notice.confirm('message', 'title', {
+bekit.notice.prompt('message', 'title', {
     inputPattern: /abc/,
     inputErrorMessage: 'Invalid value'
 }).then(() => {

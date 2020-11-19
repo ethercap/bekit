@@ -112,7 +112,7 @@ bekit.notice.confirm('message', 'title').then(() => {
 |inputErrorMessage|String|输入框的错误提示|''|否
 ##### 示例
 ```javascript
-bekit.notice.confirm('message', 'title', {
+bekit.notice.prompt('message', 'title', {
     inputPattern: /abc/,
     inputErrorMessage: '格式错误'
 }).then(() => {
