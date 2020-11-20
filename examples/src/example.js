@@ -28,7 +28,7 @@ new Vue({
         window.x = this;
         this.$nextTick(this.test);
         this.ls();
-        // this.notice();
+        this.notice();
     },
     methods: {
         test: function() {
@@ -42,6 +42,7 @@ new Vue({
             this.$confirm('some message', 'title', {
                 confirmButtonText: '好的'
             }).then(function(data) {
+                console.log(data);
                 _this.$toast({
                     message: data,
                     type: 'success'
