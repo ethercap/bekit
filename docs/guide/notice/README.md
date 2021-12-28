@@ -1,5 +1,5 @@
 # notice
-Support the notice function, such as toast, alert, confirm, prompt. You can customize the style of the notice components. If you want to use these components in your project, you should write styles firstly. [See detail](https://github.com/ethercap/bekit/blob/master/examples/src/example.less)
+Support the notice function, such as toast, alert, confirm, prompt. You can customize the style of the notice components. If you want to use these components in your project, you should write styles firstly. [See detail](https://github.com/luzimingx/bekit/blob/master/examples/src/example.less)
 
 ## toast
 #### bekit.notice.toast(options)

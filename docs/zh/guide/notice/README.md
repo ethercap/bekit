@@ -1,5 +1,5 @@
 # notice
-提供业务中常见的通知，包含 toast、messageBox、alert、confirm、prompt，因为 bekit 是无 UI 的，所以在某个项目中引入 bekit 后需要写相应的样式，参见 [示例](https://github.com/ethercap/bekit/blob/master/examples/src/example.less)。这种设计是为了解决 Element UI 等组件库中的样式无法满足业务需求这种场景。
+提供业务中常见的通知，包含 toast、messageBox、alert、confirm、prompt，因为 bekit 是无 UI 的，所以在某个项目中引入 bekit 后需要写相应的样式，参见 [示例](https://github.com/luzimingx/bekit/blob/master/examples/src/example.less)。这种设计是为了解决 Element UI 等组件库中的样式无法满足业务需求这种场景。
 
 ## toast
 #### bekit.notice.toast(options)

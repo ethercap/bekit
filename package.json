@@ -15,10 +15,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ethercap/bekit.git"
+    "url": "git+https://github.com/luzimingx/bekit.git"
   },
   "author": "ether",
-  "homepage": "https://github.com/ethercap/bekit",
+  "homepage": "https://github.com/luzimingx/bekit",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.6.0",

@@ -28,7 +28,7 @@ module.exports = {
                 nav: [
                     { text: 'Home', link: '/' },
                     { text: 'Guides', link: '/guide/' },
-                    { text: 'GitHub', link: 'https://github.com/ethercap/bekit' },
+                    { text: 'GitHub', link: 'https://github.com/luzimingx/bekit' },
                 ],
                 sidebar: [{
                     title: 'Guides',
@@ -64,7 +64,7 @@ module.exports = {
                 nav: [
                     { text: '首页', link: '/zh/' },
                     { text: '指南', link: '/zh/guide/' },
-                    { text: 'GitHub', link: 'https://github.com/ethercap/bekit' },
+                    { text: 'GitHub', link: 'https://github.com/luzimingx/bekit' },
                 ],
                 sidebar: [{
                     title: '指南',
