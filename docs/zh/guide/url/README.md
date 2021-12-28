@@ -69,3 +69,27 @@ url.replaceParams({
 ### url.getFullPath()
 - 返回值： {String}
 - 详细： 返回实例的 fullPath
+
+## 静态方法
+### Url.parseParams(search)
+- 参数：
+  - {String} search
+- 返回值：{Object} 一个 key/value 对象
+- 示例
+```javascript
+let search = 'source=gtx&sl=zh-CN';
+Url.parseParams(search); // { source: 'gtx', sl: 'zh-CN' }
+```
+
+### Url.stringifyParams(params)
+- 参数：
+  - {Object} params 一个 key/value 对象
+- 返回值：{String}
+- 示例
+```javascript
+let params = {
+    source: 'gtx',
+    sl: 'zh-CN'
+};
+Url.stringifyParams(params); // 'source=gtx&sl=zh-CN'
+```

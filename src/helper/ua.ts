@@ -10,7 +10,7 @@
 
 import Factory from './Factory.ts';
 const getSingle = Factory.getSingle;
-const userAgent = navigator.userAgent;
+const userAgent = navigator.userAgent.toLowerCase();
 
 function _isDealEase(): boolean {
     return /DealEase/i.test(userAgent);

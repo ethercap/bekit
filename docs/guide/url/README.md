@@ -69,3 +69,27 @@ url.replaceParams({
 ### url.getFullPath()
 - Returns: {String}
 - Detail:  Return the fullPath.
+
+## Static Methods
+### Url.parseParams(search)
+- Arguments:
+  - {String} search
+- Returns: {Object} an key/value Object
+- Usage
+```javascript
+let search = 'source=gtx&sl=zh-CN';
+Url.parseParams(search); // { source: 'gtx', sl: 'zh-CN' }
+```
+
+### Url.stringifyParams(params)
+- Arguments:
+  - {Object} params an key/value Object
+- Returns: {String}
+- Usage
+```javascript
+let params = {
+    source: 'gtx',
+    sl: 'zh-CN'
+};
+Url.stringifyParams(params); // 'source=gtx&sl=zh-CN'
+```

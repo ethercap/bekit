@@ -13,5 +13,5 @@ const { Url, Ua, Dom } = bekit.helper;
 ```
 
 ## Documentation
-[English](http://zhiyuancap.com/bekit/)<br/>
-[中文](http://zhiyuancap.com/bekit/zh/)
+[English](https://ethercap.github.io/bekit/)<br/>
+[中文](https://ethercap.github.io/bekit/zh/)
