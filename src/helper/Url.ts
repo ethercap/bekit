@@ -59,6 +59,17 @@ export default class Url {
     public replaceParams(obj: Object) {
         return this.addParams(obj);
     }
+    public addHash(hash: string) {
+        this.hash = hash;
+        this.getFullPath();
+        return this;
+    }
+    public removeHash() {
+        return this.addHash('');
+    }
+    public replaceHash(hash: string) {
+        return this.addHash(hash);
+    }
     public toString() {
         const protocol = this.protocol + '://';
         const host = this.host;

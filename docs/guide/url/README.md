@@ -62,6 +62,28 @@ url.replaceParams({
 });
 ```
 
+### url.addHash(hash)
+- Arguments:
+  - {String} hash
+- Usage
+```javascript
+url.addHash('some-hash');
+```
+
+### url.removeHash()
+- Usage
+```javascript
+url.removeHash();
+```
+
+### url.replaceHash(hash)
+- Arguments:
+  - {String} hash
+- Usage
+```javascript
+url.replaceHash('other-hash');
+```
+
 ### url.toString()
 - Returns: {String}
 - Detail:  Convert the instance to String.

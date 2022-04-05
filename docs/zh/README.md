@@ -14,6 +14,6 @@ npm install bekit -D
 ```
 ### 使用
 ```javascript
-import * as bekit form 'bekit';
+import * as bekit from 'bekit';
 const { Url, Ua, Dom } = bekit.helper;
 ```

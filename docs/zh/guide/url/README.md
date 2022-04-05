@@ -62,6 +62,28 @@ url.replaceParams({
 });
 ```
 
+### url.addHash(hash)
+- 参数：
+  - {String} hash
+- 示例
+```javascript
+url.addHash('some-hash');
+```
+
+### url.removeHash()
+- 示例
+```javascript
+url.removeHash();
+```
+
+### url.replaceHash(hash)
+- 参数：
+  - {String} hash
+- 示例
+```javascript
+url.replaceHash('other-hash');
+```
+
 ### url.toString()
 - 返回值： {String}
 - 详细： 将实例转为字符串格式
