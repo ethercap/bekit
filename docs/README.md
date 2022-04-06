@@ -8,11 +8,15 @@ actionLink: /guide/
 footer: null
 ---
 
-### 安装
+### Install
 ```bash
+# use npm
 npm install bekit -D
+
+# use yarn
+yarn add bekit
 ```
-### 使用
+### Usage
 ```javascript
 import * as bekit from 'bekit';
 const { Url, Ua, Dom } = bekit.helper;

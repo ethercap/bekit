@@ -10,7 +10,11 @@ footer: null
 
 ### 安装
 ```bash
+# 使用 npm
 npm install bekit -D
+
+# 使用 yarn
+yarn add bekit
 ```
 ### 使用
 ```javascript
